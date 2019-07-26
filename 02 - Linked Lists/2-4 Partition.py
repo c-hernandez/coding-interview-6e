@@ -35,19 +35,28 @@ def partition(sll, pivot):
     return before_list
 
 class Test(unittest.TestCase):
-    #TODO: think of a good way to write a test for this since output is not necessarily sorted
+    cases = (
+        ([9, 7, 4, 2, 4, 2, 5, 9, 4, 302, 4, 6, 1, 2, 3, 3, 8, 1111], 5),
+        ([9, 7, 4, 2, 4, 2, 5, 9, 4, 302, 4, 6, 1, 2, 3, 3, 8, 1111], 1),
+        ([9, 7, 4, 2, 4, 2, 5, 9, 4, 302, 4, 6, 1, 2, 3, 3, 8, 1111], 300)
+    )
 
     def test_partition(self):
-        pass
+        for data, pivot in self.cases:
+            test = partition(SLL(data=data), pivot)
+            print(test)
+            node = test.head
+            output = False
+            while node.data <= pivot and node.next:
+                node = node.next
+            while node.next:
+                if node.next >= pivot:
+                    output = True
+                else:
+                    output = False
+                node = node.next
+            self.assertTrue(output)
 
 
 if __name__ == '__main__':
-    print('Dirty test of partitioning')
-    data = [9, 7, 4, 2, 4, 2, 5, 9, 4, 302, 4, 6, 1, 2, 3, 3, 8, 1111]
-    test = SLL(data[0])
-    for i in data[1:]:
-        test.insert(i)
-
-    print(test)
-    test = partition(test, 0)
-    print(test)
+    unittest.main()
