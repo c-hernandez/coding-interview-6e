@@ -5,8 +5,11 @@ class SLL(object):
             self.data = data
             self.next = next
 
-    def __init__(self, head=None):
+    def __init__(self, head=None, data=None):
         self.head = self._Node(head)
+        if data:
+            for i in data:
+                self.insert(i)
 
     def __str__(self):
         string = ''
@@ -41,6 +44,7 @@ class SLL(object):
         while current.next:
             current = current.next
         current.next = self._Node(data)
+        return current.next
 
     def delete(self, data):
         current = self.head
