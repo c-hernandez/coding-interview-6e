@@ -3,17 +3,7 @@ import unittest
 
 
 def sum_lists(list_a, list_b):
-    a = list_a.head
-    b = list_b.head
-    output = SLL(a.data+b.data % 10)
-    carry = a.data+b.data // 10
-    while a.next or b.next:
-        c = a.next.data + b.next.data + carry
-        output.insert(c % 10)
-        carry = c // 10
-        a = a.next
-        b = b.next
-    return output
+    pass
 
 
 class Test(unittest.TestCase):

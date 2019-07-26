@@ -6,10 +6,12 @@ class SLL(object):
             self.next = next
 
     def __init__(self, head=None, data=None):
-        self.head = self._Node(head)
         if data:
-            for i in data:
+            self.head = self._Node(data[0])
+            for i in data[1:]:
                 self.insert(i)
+        else:
+            self.head = self._Node(head)
 
     def __str__(self):
         string = ''
