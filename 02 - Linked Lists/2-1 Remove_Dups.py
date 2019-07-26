@@ -16,20 +16,12 @@ def remove_dups(sll):
 
 class Test(unittest.TestCase):
     def test_remove_dups(self):
-        test = SLL(4)
         test_data = [4, 5, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 6, 3, 3]
-        for i in test_data:
-            test.insert(i)
+        test = SLL(4, test_data)
 
-        answer = SLL(4)
         answer_data = [5, 3, 2, 1, 6]
-        for i in answer_data:
-            answer.insert(i)
+        answer = SLL(4, answer_data)
 
-        print(test)
-        print(remove_dups(test))
-        print(answer)
-        print(test == answer)
         self.assertEqual(remove_dups(test), answer)
 
 
